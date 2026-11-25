@@ -6,15 +6,25 @@
     <title>Job board</title>
     <style>
       body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 640px; padding: 16px; }
-      li { border: 1px solid #ddd; border-radius: 8px; list-style: none; margin: 8px 0; padding: 12px; }
+      li { border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; list-style: none; margin: 8px 0; padding: 12px; }
       ul { padding: 0; }
       input { font-size: 16px; padding: 8px; width: 100%; box-sizing: border-box; }
+      button { cursor: pointer; font-size: 14px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; flex-shrink: 0; }
+      button:disabled { cursor: default; opacity: 0.6; }
+      .empty { color: #666; font-size: 14px; }
+      .error { color: #b00020; font-size: 14px; }
     </style>
   </head>
   <body>
     <h1>Jobs</h1>
     <input id="search" placeholder="Search by title, company or place" />
+    <p id="status" class="error" hidden></p>
     <ul id="jobs"></ul>
+
+    <h2>Saved jobs</h2>
+    <p id="saved-empty" class="empty">No saved jobs yet.</p>
+    <ul id="saved"></ul>
+
     <script type="module" src="/app.js"></script>
   </body>
 </html>
